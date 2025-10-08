@@ -1,0 +1,263 @@
+1. Write a Java program to calculate the electricity bill based on the following rules:
+Units	Rate per unit
+0 – 100	₹5
+101 – 300	₹7
+Above 300	₹10
+If total bill > ₹2000, add 10% surcharge.
+
+2.  Student Grade System
+Get marks for 5 subjects.
+Find average and assign grade as per the following:
+Average	Grade
+≥ 90	A+
+80–89	A
+70–79	B
+60–69	C
+< 60	Fail
+
+3. Employee Bonus Calculation
+Company policy:
+If experience > 5 years → 15% bonus
+Else if experience ≥ 3 → 10% bonus
+Else → 5% bonus
+
+4. ATM Withdrawal Simulation
+User enters balance and withdrawal amount.
+Check if sufficient balance
+If yes → deduct
+Else → print “Insufficient Balance”
+
+5. Shopping Discount System
+If total amount > ₹5000, apply 20% discount,
+else if > ₹2000 → 10% discount,
+otherwise no discount.
+
+6. Traffic Light Simulation
+Use a switch statement to display the meaning of each light color.
+
+7. Simple Calculator using Switch
+
+8. Find the area and parameter of rectangle
+
+9. Check if Number is Even or Odd
+
+10. Check Leap Year
+
+
+PROGRAMS
+
+
+//1
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		String res = (num % 2 == 0) ? "Even" : "Odd";
+		System.out.println("It is an "+res+ " number.");
+	}
+}
+
+
+//2
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		String res = (num % 4 == 0) ? "Leap Year" : "Not a Leap Year";
+		System.out.println("It is "+res);
+	}
+}
+
+
+//3
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		switch(str){
+		    case "Red":
+		        System.out.println("Stop");break;
+		    case "Orange":
+		        System.out.println("Get ready");break;
+		    case "Green":
+		        System.out.println("Go");break;
+		    default:
+		         System.out.println("Invalid color, enter the correct color");
+		}
+	}
+}
+
+
+//4
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int length = sc.nextInt();
+		int breadth = sc.nextInt();
+		int area = length*breadth;
+		System.out.println("Area of the rectangle is "+area);
+		int perimeter = 2*(length+breadth);
+		System.out.println("Perimeter of the rectangle is "+perimeter);
+	}
+}
+
+
+//5
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("a : ");
+		int a = sc.nextInt();
+		System.out.print("b : ");
+		int b = sc.nextInt();
+		System.out.print("Enter your choice: ");
+		char ch = sc.next().charAt(0);
+		switch (ch){
+		    case '+':
+		        System.out.println("Addition : "+(a+b));
+		        break;
+		    case '-':
+		        System.out.println("Subtraction : "+(a-b));
+		        break;
+		    case '*':
+		        System.out.println("Multiplication : "+(a*b));
+		        break;
+		    case '/':
+		        System.out.println("Division : "+(a/b));
+		        break;
+		    case '%':
+		        System.out.println("Modulus : "+(a%b));
+		        break;
+		    default:
+		        System.out.println("Enter the valid choice");
+		}
+	}
+}
+
+
+//6
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int s1 = sc.nextInt();
+		int s2 = sc.nextInt();
+		int s3 = sc.nextInt();
+		int s4 = sc.nextInt();
+		int s5 = sc.nextInt();
+		int sum = s1+s2+s3+s4+s5;
+		float avg = sum/5;
+		if(avg < 60){
+		    System.out.println("Fail");
+		}
+		else if(avg >= 60 && avg <= 69){
+		    System.out.println("C");
+		}
+		else if(avg >= 70 && avg <= 79){
+		    System.out.println("B");
+		}
+		else if(avg >= 80 && avg <= 89){
+		    System.out.println("A");
+		}
+		else{
+		    System.out.println("A+");
+		}
+	}
+}
+
+
+//7
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter your exp: ");
+		int exp = sc.nextInt();
+		System.out.print("Enter your sal: ");
+		float sal = sc.nextFloat();
+		System.out.println("Salary is "+sal);
+		System.out.println("Experience is " +exp);
+		if(exp > 5){
+		    
+		    System.out.println("Bonus is " + (sal*0.15));
+		}
+		else if(exp >= 3){
+		    System.out.println("Bonus is " + sal*(0.10));
+		}
+		else{
+		    System.out.println("Bonus is " + sal*(0.05));
+		}
+	}
+
+
+//8
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the total amount : ");
+        float tot_amt = sc.nextFloat();
+        if(tot_amt > 5000){
+            double disc = tot_amt * 0.20;
+            System.out.println("Amount need to be pay: "+(tot_amt-disc));
+        }
+        else if(tot_amt > 2000){
+            double disc = tot_amt * 0.10;
+            System.out.println("Amount need to be pay: "+(tot_amt-disc));
+        }
+	    else {
+	        System.out.println("No discount");
+	    }
+		}
+	}
+	
+
+//9
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter units consumed: ");
+        int units = sc.nextInt();
+        double bill;
+
+        if (units <= 100)
+            bill = units * 5;
+        else if (units <= 300)
+            bill = (100 * 5) + (units - 100) * 7;
+        else
+            bill = (100 * 5) + (200 * 7) + (units - 300) * 10;
+
+        if (bill > 2000)
+            bill = bill + (bill * 0.10);
+
+        System.out.println("Total Electricity bill = " + bill);
+    }
+}
+
+
+//10
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the balance : ");
+		float bal = sc.nextFloat();
+		System.out.println("Enter the withdrawl amount : ");
+		float with_amt = sc.nextFloat();
+		if(bal > with_amt){
+		    System.out.println("Amount Deducted is "+with_amt);
+		    System.out.println("Balance amount in the account after withdrawal is "+(bal-with_amt));
+		}
+		else{
+		    System.out.println("Insufficient Balance");
+		}
+		}
+	}
