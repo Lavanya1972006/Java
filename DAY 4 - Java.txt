@@ -1,0 +1,131 @@
+//Count vowels in a string
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		String s = str.toLowerCase();
+		int count = 0;
+		for(int i = 0;i < str.length();i++){
+		    char ch = s.charAt(i);
+		    if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'){
+		        count++;
+		    }
+		}
+		System.out.println("Count of Vowels in a string is "+count);
+	}
+}
+
+
+//Reverse a string
+
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        String r = "";
+        for (int i = (str.length() - 1);i >= 0;i--){
+            r = r + str.charAt(i);
+            
+        }System.out.println("Reversed string: "+ r);
+    }
+}
+
+
+
+//Check if a string is a palindrome
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        System.out.println("Original String: "+str);
+        String r = "";
+        for (int i = (str.length() - 1);i >= 0;i--){
+            r = r + str.charAt(i);
+            
+        }System.out.println("Reversed String: "+ r);
+        if(str.equals(r)){
+            System.out.println("The given string is a palindrome");
+        }
+        else{
+            System.out.println("The given string is not a palindrome");
+        }
+    }
+}
+
+
+//Check if two strings are anagrams
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str1 = sc.nextLine();
+        String str2 = sc.nextLine();
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str2.toCharArray();
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        if(Arrays.equals(arr1,arr2)){
+            System.out.println("The given strings are anagram");
+        }
+        else{
+            System.out.println("The given strings are not anagram");
+        }
+    }
+}
+
+
+//Find duplicate characters
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String s = sc.nextLine();
+		System.out.println("The duplicate characters are: ");
+		for(int i = 0;i <= s.length() - 1;i++){
+		    for(int j = i+1;j<=s.length() - 1;j++){
+		        if(s.charAt(i) == s.charAt(j)){
+		            System.out.println(s.charAt(i));
+		        }
+		    }
+		}
+	}
+}
+
+
+//Compress a string using run-length encoding (e.g., aaabb → a3b2).
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String compressed = "";
+
+        System.out.println("Compressed string: ");
+        for (int i = 0; i < s.length(); i++) {
+            int count = 1;
+            for (int j = i + 1; j < s.length(); j++) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    count++;
+                    i = j; 
+                } else {
+                    break;
+                }
+            }
+            compressed += s.charAt(i) + String.valueOf(count);
+        }
+
+        System.out.println(compressed);
+    }
+}
